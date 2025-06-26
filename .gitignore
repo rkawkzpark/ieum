@@ -1,0 +1,22 @@
+# Log files
+*.log
+
+# Build artifacts
+build/
+out/
+.gradle/
+
+# IDE files (IntelliJ)
+.idea/
+*.iml
+
+# Dependency files
+*.jar
+*.war
+
+# Sensitive configuration files
+application.yml
+
+# Operating System files
+.DS_Store
+Thumbs.db
