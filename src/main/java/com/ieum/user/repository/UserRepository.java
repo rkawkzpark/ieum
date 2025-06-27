@@ -1,6 +1,6 @@
-package com.ieum.repository;
+package com.ieum.user.repository;
 
-import com.ieum.domain.User;
+import com.ieum.user.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

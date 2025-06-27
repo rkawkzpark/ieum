@@ -15,12 +15,12 @@ public enum ErrorCode {
     RESOURCE_NOT_FOUND(HttpStatus.NOT_FOUND, "RESOURCE_NOT_FOUND", "요청한 리소스를 찾을 수 없습니다."),
     SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "SERVER_ERROR", "서버 내부 오류가 발생했습니다."),
 
-    // 회원가입 기능에 특화된 에러 코드 (409 Conflict)
+    // 회원가입 에러 코드 (409 Conflict)
     EMAIL_ALREADY_EXISTS(HttpStatus.CONFLICT, "DUPLICATE_RESOURCE", "이미 사용 중인 이메일입니다."),
     STUDENT_ID_ALREADY_EXISTS(HttpStatus.CONFLICT, "DUPLICATE_RESOURCE", "이미 사용 중인 학번입니다.");
 
 
     private final HttpStatus status;
-    private final String code; // 명세에 정의된 "ERROR_CODE_STRING"
+    private final String code;
     private final String message;
 }

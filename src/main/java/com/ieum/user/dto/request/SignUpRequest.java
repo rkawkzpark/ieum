@@ -1,6 +1,6 @@
-package com.ieum.dto.request;
+package com.ieum.user.dto.request;
 
-import com.ieum.domain.User;
+import com.ieum.user.domain.User;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

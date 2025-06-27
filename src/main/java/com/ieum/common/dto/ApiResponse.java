@@ -8,10 +8,10 @@ public class ApiResponse<T> {
 
     private final boolean success;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL) // data가 null이면 json에 포함하지 않음
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private final T data;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL) // error가 null이면 json에 포함하지 않음
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private final ErrorResponse error;
 
     // 성공 시

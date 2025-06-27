@@ -1,4 +1,4 @@
-package com.ieum.domain;
+package com.ieum.user.domain;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
