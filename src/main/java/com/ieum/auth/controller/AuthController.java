@@ -1,8 +1,9 @@
 package com.ieum.auth.controller;
 
-import com.ieum.auth.dto.EmailLoginRequest;
-import com.ieum.auth.dto.StudentIdLoginRequest;
-import com.ieum.auth.dto.TokenDto;
+import com.ieum.auth.dto.request.EmailLoginRequest;
+import com.ieum.auth.dto.request.ReissueRequest;
+import com.ieum.auth.dto.request.StudentIdLoginRequest;
+import com.ieum.auth.dto.response.TokenResponse;
 import com.ieum.auth.service.AuthService;
 import com.ieum.common.dto.ApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,15 +25,23 @@ public class AuthController {
 
     @Operation(summary = "이메일 로그인")
     @PostMapping("/login/email")
-    public ResponseEntity<ApiResponse<TokenDto>> loginByEmail(@RequestBody EmailLoginRequest request) {
-        TokenDto tokenDto = authService.loginByEmail(request);
-        return ResponseEntity.ok(ApiResponse.success(tokenDto));
+    public ResponseEntity<ApiResponse<TokenResponse>> loginByEmail(@RequestBody EmailLoginRequest request) {
+        TokenResponse tokenResponse = authService.loginByEmail(request);
+        return ResponseEntity.ok(ApiResponse.success(tokenResponse));
     }
 
     @Operation(summary = "학번 로그인")
     @PostMapping("/login/student-id")
-    public ResponseEntity<ApiResponse<TokenDto>> loginByStudentId(@RequestBody StudentIdLoginRequest request) {
-        TokenDto tokenDto = authService.loginByStudentId(request);
-        return ResponseEntity.ok(ApiResponse.success(tokenDto));
+    public ResponseEntity<ApiResponse<TokenResponse>> loginByStudentId(@RequestBody StudentIdLoginRequest request) {
+        TokenResponse tokenResponse = authService.loginByStudentId(request);
+        return ResponseEntity.ok(ApiResponse.success(tokenResponse));
     }
+
+    @Operation(summary = "토큰 재발급")
+    @PostMapping("/reissue")
+    public ResponseEntity<ApiResponse<TokenResponse>> reissue(@RequestBody ReissueRequest request) {
+        TokenResponse tokenResponse = authService.reissue(request);
+        return ResponseEntity.ok(ApiResponse.success(tokenResponse));
+    }
+
 }

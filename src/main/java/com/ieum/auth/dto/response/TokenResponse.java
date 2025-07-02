@@ -1,4 +1,4 @@
-package com.ieum.auth.dto;
+package com.ieum.auth.dto.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TokenDto {
+public class TokenResponse {
 
     @Schema(description = "인증 타입", example = "Bearer")
     private String grantType;
