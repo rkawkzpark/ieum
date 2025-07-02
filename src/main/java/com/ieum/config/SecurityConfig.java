@@ -4,6 +4,7 @@ import com.ieum.common.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -31,29 +32,32 @@ public class SecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+    // 1. API용 SecurityFilterChain
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    @Order(1)
+    public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
         http
-                // 1. CSRF 비활성화
+                .securityMatcher("/api/**")
                 .csrf(csrf -> csrf.disable())
-
-                // 2. 세션 관리 방식을 'Stateless'로 설정
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-
-                // 3. HTTP 요청에 대한 접근 권한 설정
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(
-                                "/swagger-ui/**",
-                                "/v3/api-docs/**",
-                                "/api/v1/users/sign-up",
-                                "/api/v1/auth/**"
-                        ).permitAll()
+                        .requestMatchers("/api/v1/users/sign-up", "/api/v1/auth/**").permitAll()
                         .anyRequest().authenticated()
                 )
-
-                // 4. 우리가 만든 JWT 인증 필터를 UsernamePasswordAuthenticationFilter 앞에 추가
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
+        return http.build();
+    }
+
+    // 2. Swagger UI 및 기타 정적 리소스용 SecurityFilterChain
+    @Bean
+    @Order(2)
+    public SecurityFilterChain swaggerFilterChain(HttpSecurity http) throws Exception {
+        http
+                .securityMatcher("/**")
+                .authorizeHttpRequests(authorize -> authorize
+                        .anyRequest().permitAll()
+                );
         return http.build();
     }
 }
