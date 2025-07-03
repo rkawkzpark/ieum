@@ -23,12 +23,14 @@ public class UserService {
 
         // 중복 email 검증
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new BusinessException(ErrorCode.EMAIL_ALREADY_EXISTS);
+            // 수정된 ErrorCode를 사용합니다.
+            throw new BusinessException(ErrorCode.DUPLICATE_RESOURCE);
         }
 
         // 중복 학번 검증
         if (userRepository.existsByStudentId(request.getStudentId())) {
-            throw new BusinessException(ErrorCode.STUDENT_ID_ALREADY_EXISTS);
+            // 수정된 ErrorCode를 사용합니다.
+            throw new BusinessException(ErrorCode.DUPLICATE_RESOURCE);
         }
 
         User user = request.toEntity(passwordEncoder);
