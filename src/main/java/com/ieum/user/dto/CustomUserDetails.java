@@ -15,6 +15,16 @@ public class CustomUserDetails implements UserDetails {
     private final User user;
 
     /**
+     * [추가 제안]
+     * User 엔티티의 ID(PK)를 반환하는 메서드.
+     * 컨트롤러에서 @AuthenticationPrincipal을 통해 주입받은 UserDetails 객체로부터
+     * 손쉽게 사용자의 ID를 얻기 위해 사용됩니다.
+     */
+    public Long getUserId() {
+        return this.user.getId();
+    }
+
+    /**
      * 사용자의 권한 목록을 반환합니다.
      * 현재는 모든 사용자에게 'ROLE_USER' 권한을 부여합니다.
      */
