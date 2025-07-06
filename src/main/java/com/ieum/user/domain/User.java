@@ -29,11 +29,26 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false, unique = true)
     private String studentId;
 
+    @Column(length = 100)
+    private String introduction;
+
+
     @Builder
-    public User(String email, String password, String name, String studentId) {
+    public User(String email, String password, String name, String studentId, String introduction) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.studentId = studentId;
+        this.introduction = introduction;
+    }
+
+    /**
+     * 사용자의 이름과 자기소개를 수정합니다.
+     * @param name 새로운 이름
+     * @param introduction 새로운 자기소개
+     */
+    public void updateProfile(String name, String introduction) {
+        this.name = name;
+        this.introduction = introduction;
     }
 }
