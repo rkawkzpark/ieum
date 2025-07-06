@@ -1,0 +1,105 @@
+/* General Layout */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 2rem 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Form Elements */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Tab Buttons on Login Page */
+.tab-buttons {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+#email-login-tab-btn, #student-id-login-tab-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+#email-login-tab-btn.active, #student-id-login-tab-btn.active {
+    background-color: white;
+    border-bottom: 1px solid white;
+    position: relative;
+    top: 1px;
+}
+
+#email-login-tab-btn {
+    border-top-left-radius: 4px;
+}
+
+#student-id-login-tab-btn {
+    border-top-right-radius: 4px;
+}
+
+/* Links */
+p {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
