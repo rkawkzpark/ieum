@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>이음 - 회원가입</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
     <h1>회원가입</h1>
-    <form id="signup-form">
-        <input type="email" id="email" name="email" placeholder="이메일" required>
-        <input type="password" id="password" name="password" placeholder="비밀번호" required>
-        <input type="text" id="name" name="name" placeholder="이름" required>
-        <input type="text" id="studentId" name="studentId" placeholder="학번" required>
-        <textarea id="introduction" name="introduction" placeholder="자기소개 (최대 100자)"></textarea>
+    <form id="signup-form" novalidate>
+        <div>
+            <input type="email" id="email" name="email" placeholder="이메일" required>
+            <p class="error-message"></p>
+        </div>
+        <div>
+            <input type="password" id="password" name="password" placeholder="비밀번호" required>
+            <p class="error-message"></p>
+        </div>
+        <div>
+            <input type="text" id="name" name="name" placeholder="이름" required>
+            <p class="error-message"></p>
+        </div>
+        <div>
+            <input type="text" id="studentId" name="studentId" placeholder="학번" required>
+            <p class="error-message"></p>
+        </div>
+        <div>
+            <textarea id="introduction" name="introduction" placeholder="자기소개 (최대 100자)"></textarea>
+            <p class="error-message"></p>
+        </div>
         <button type="submit">가입하기</button>
     </form>
     <p>이미 계정이 있으신가요? <a href="login.html">로그인</a></p>

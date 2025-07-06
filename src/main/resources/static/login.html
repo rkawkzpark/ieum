@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>이음 - 로그인</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
@@ -14,15 +14,27 @@
         <button id="student-id-login-tab-btn">학번으로 로그인</button>
     </div>
 
-    <form id="email-login-form">
-        <input type="email" id="email-login" name="email" placeholder="이메일" required>
-        <input type="password" id="password-login" name="password" placeholder="비밀번호" required>
+    <form id="email-login-form" novalidate>
+        <div>
+            <input type="email" id="email-login" name="email" placeholder="이메일" required>
+            <p class="error-message"></p>
+        </div>
+        <div>
+            <input type="password" id="password-login" name="password" placeholder="비밀번호" required>
+            <p class="error-message"></p>
+        </div>
         <button type="submit">로그인</button>
     </form>
 
-    <form id="student-id-login-form" style="display:none;">
-        <input type="text" id="studentId-login" name="studentId" placeholder="학번" required>
-        <input type="password" id="password-student" name="password" placeholder="비밀번호" required>
+    <form id="student-id-login-form" style="display:none;" novalidate>
+        <div>
+            <input type="text" id="studentId-login" name="studentId" placeholder="학번" required>
+            <p class="error-message"></p>
+        </div>
+        <div>
+            <input type="password" id="password-student" name="password" placeholder="비밀번호" required>
+            <p class="error-message"></p>
+        </div>
         <button type="submit">로그인</button>
     </form>
 

@@ -28,10 +28,7 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
-}
-
-form > *:not(:last-child) {
-    margin-bottom: 1rem;
+    gap: 0.5rem;
 }
 
 input, textarea, button {
@@ -58,33 +55,37 @@ button[type="submit"] {
     transition: background-color 0.2s;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
+.error-message {
+    color: #dc3545;
+    font-size: 0.8rem;
+    text-align: left;
+    margin-top: 0.2rem;
 }
 
 /* Tab Buttons on Login Page */
 .tab-buttons {
     display: flex;
     margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd; /* 컨테이너 전체에 밑줄을 추가합니다. */
 }
 
 #email-login-tab-btn, #student-id-login-tab-btn {
     flex: 1;
     padding: 0.8rem;
     border: 1px solid #ddd;
-    border-bottom: none;
+    border-bottom: none; /* 각 버튼의 밑줄은 없습니다. */
     background-color: #f8f9fa;
     cursor: pointer;
     border-radius: 0;
 }
 
 #email-login-tab-btn.active, #student-id-login-tab-btn.active {
-    background-color: white;
-    border-bottom: 1px solid white;
+    background-color: white; /* 활성화된 탭은 배경을 흰색으로 */
     position: relative;
-    top: 1px;
+    top: 1px; /* 아래 컨테이너의 밑줄을 덮도록 1px 아래로 이동 */
 }
 
+/* 탭의 좌우 모서리 둥글게 처리 */
 #email-login-tab-btn {
     border-top-left-radius: 4px;
 }
