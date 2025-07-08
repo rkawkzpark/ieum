@@ -26,12 +26,16 @@ public class SignUpRequest {
     @NotBlank(message = "학번은 필수 입력 항목입니다.")
     private String studentId;
 
+    @Size(max = 100, message = "자기소개는 100자 이내로 입력해주세요.")
+    private String introduction;
+
     public User toEntity(PasswordEncoder passwordEncoder) {
         return User.builder()
                 .email(this.email)
                 .password(passwordEncoder.encode(this.password))
                 .name(this.name)
                 .studentId(this.studentId)
+                .introduction(this.introduction)
                 .build();
     }
 }
