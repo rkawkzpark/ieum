@@ -1,3 +1,16 @@
+/**
+ * 로그아웃을 처리하는 전역 함수
+ * localStorage의 토큰을 삭제하고 로그인 페이지로 이동시킵니다.
+ */
+const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+
+    alert('성공적으로 로그아웃되었습니다.');
+    window.location.href = '/html/login.html';
+};
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 공통 헬퍼 함수 ---
@@ -72,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('accessToken', data.accessToken);
             localStorage.setItem('refreshToken', data.refreshToken);
             alert('로그인 성공!');
-            window.location.href = '/'; // 메인 페이지로 이동 (지금은 없으므로 루트로 설정)
+            window.location.href = 'main.html';
         };
 
         // 각 로그인 폼에 공통 핸들러 연결
