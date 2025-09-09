@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReissueRequest {
 
-    @Schema(description = "기존 Access Token")
+    @Schema(description = "기존 Access Token", example = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZW1iZXJAaWV1bS5jb20iLCJpYXQiOjE3MjU4NDU5MDIsImV4cCI6MTcyNTg0OTUwMn0.abcdefg123456")
     private String accessToken;
 
-    @Schema(description = "기존 Refresh Token")
+    @Schema(description = "기존 Refresh Token", example = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZW1iZXJAaWV1bS5jb20iLCJpYXQiOjE3MjU4NDU5MDIsImV4cCI6MTcyNTg0OTUwMn0.abcdefg123456")
     private String refreshToken;
 }

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StudentIdLoginRequest {
 
-    @Schema(description = "학번", example = "202012345")
+    @Schema(description = "학번", example = "202512345")
     private String studentId;
 
     @Schema(description = "비밀번호", example = "password123!")

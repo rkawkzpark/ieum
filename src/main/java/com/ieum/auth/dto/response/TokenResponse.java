@@ -16,9 +16,9 @@ public class TokenResponse {
     @Schema(description = "인증 타입", example = "Bearer")
     private String grantType;
 
-    @Schema(description = "액세스 토큰 (실제 인증 토큰)")
+    @Schema(description = "액세스 토큰 (실제 인증 토큰)", example = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZW1iZXJAaWV1bS5jb20iLCJpYXQiOjE3MjU4NDU5MDIsImV4cCI6MTcyNTg0OTUwMn0.abcdefg123456")
     private String accessToken;
 
-    @Schema(description = "리프레시 토큰 (액세스 토큰 재발급용)")
+    @Schema(description = "리프레시 토큰 (액세스 토큰 재발급용)", example = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZW1iZXJAaWV1bS5jb20iLCJpYXQiOjE3MjU4NDU5MDIsImV4cCI6MTcyNTg0OTUwMn0.abcdefg123456")
     private String refreshToken;
 }
