@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EmailLoginRequest {
 
-    @Schema(description = "사용자 이메일", example = "test@university.ac.kr")
+    @Schema(description = "사용자 이메일", example = "member@ieum.com")
     private String email;
 
     @Schema(description = "비밀번호", example = "password123!")

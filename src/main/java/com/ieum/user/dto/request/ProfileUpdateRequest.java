@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Schema(description = "내 프로필 정보 수정 요청 DTO")
 public class ProfileUpdateRequest {
 
-    @Schema(description = "새로운 사용자 이름", example = "홍길동")
+    @Schema(description = "수정할 이름", example = "김이음")
     private String name;
 
-    @Schema(description = "새로운 자기소개", example = "hello world!")
+    @Schema(description = "수정할 자기소개", example = "안녕하세요. '이음'입니다.")
     private String introduction;
 }

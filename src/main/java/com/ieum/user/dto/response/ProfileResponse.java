@@ -12,16 +12,16 @@ import lombok.NoArgsConstructor;
 @Schema(description = "내 프로필 정보 응답 DTO")
 public class ProfileResponse {
 
-    @Schema(description = "사용자 이메일", example = "ieum@example.com")
+    @Schema(description = "사용자 이메일", example = "member@ieum.com")
     private String email;
 
-    @Schema(description = "사용자 이름", example = "홍길동")
+    @Schema(description = "사용자 이름", example = "김이음")
     private String name;
 
-    @Schema(description = "사용자 학번", example = "202500000")
+    @Schema(description = "사용자 학번", example = "202512345")
     private String studentId;
 
-    @Schema(description = "자기소개", example = "hello world!")
+    @Schema(description = "자기소개", example = "안녕하세요. '이음'입니다.")
     private String introduction;
 
     @Builder
@@ -32,11 +32,6 @@ public class ProfileResponse {
         this.introduction = introduction;
     }
 
-    /**
-     * User 엔티티를 ProfileResponse DTO로 변환하는 정적 팩토리 메서드
-     * @param user User 엔티티 객체
-     * @return 변환된 ProfileResponse DTO
-     */
     public static ProfileResponse from(User user) {
         return ProfileResponse.builder()
                 .email(user.getEmail())
