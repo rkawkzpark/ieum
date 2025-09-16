@@ -49,7 +49,7 @@ public class Study extends BaseTimeEntity {
     private Integer maxMembers; // 최대 정원
 
     @OneToMany(mappedBy = "study", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Membership> memb   ers = new ArrayList<>();
+    private List<Membership> members = new ArrayList<>();
 
     @Builder
     public Study(String title, String description, String category, StudyType type, String region, LocalDate startDate, LocalDate endDate, StudyStatus status, Integer maxMembers) {
