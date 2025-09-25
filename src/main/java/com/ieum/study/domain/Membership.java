@@ -1,20 +1,21 @@
 package com.ieum.study.domain;
 
 import com.ieum.user.domain.BaseTimeEntity;
-import com.ieum.user.domain.User; // User 엔티티의 실제 경로에 맞게 수정해야 합니다.
+import com.ieum.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-// 한 명의 유저가 같은 스터디에 중복으로 참여하는 것을 방지하기 위해 복합 유니크 키 설정
+// 중복 참여 방지
 @Table(name = "membership", uniqueConstraints = {
         @UniqueConstraint(
                 name = "membership_uk",
                 columnNames = {"user_id", "study_id"}
         )
 })
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -34,7 +35,7 @@ public class Membership extends BaseTimeEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private StudyRole role; // 멤버의 역할 (LEADER, MEMBER)
+    private StudyRole role; // LEADER, MEMBER (ADMINISTRATOR 추가 구현)
 
     @Builder
     public Membership(User user, Study study, StudyRole role) {

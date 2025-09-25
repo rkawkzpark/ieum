@@ -8,7 +8,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-// 한 명의 유저가 동일한 스터디에 중복 지원하는 것을 방지하기 위해 복합 유니크 키 설정
+// 중복 지원 방지
 @Table(name = "application", uniqueConstraints = {
         @UniqueConstraint(
                 name = "application_uk",
@@ -37,7 +37,7 @@ public class Application extends BaseTimeEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ApplicationStatus status; // 지원 상태 (PENDING, APPROVED, REJECTED)
+    private ApplicationStatus status; // 스터디 상태
 
     @Builder
     public Application(User applicant, Study study, String message, ApplicationStatus status) {

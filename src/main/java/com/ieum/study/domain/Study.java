@@ -18,32 +18,32 @@ public class Study extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // 식별 번호
 
     @Column(nullable = false, length = 100)
-    private String title; // 스터디 제목
+    private String title; // 제목
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String description; // 스터디 설명
+    private String description; // 설명
 
     @Column(nullable = false, length = 50)
-    private String category; // 스터디 주제
+    private String category; // 주제
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private StudyType type; // 진행 방식 (ONLINE, OFFLINE)
+    private StudyType type; // 진행 방식
 
-    private String region; // 진행 지역 (오프라인일 경우)
-
-    @Column(nullable = false)
-    private LocalDate startDate; // 스터디 시작일
+    private String region; // 진행 지역
 
     @Column(nullable = false)
-    private LocalDate endDate; // 스터디 종료일
+    private LocalDate startDate; // 시작일
+
+    @Column(nullable = false)
+    private LocalDate endDate; // 종료일
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private StudyStatus status; // 스터디 상태 (RECRUITING, IN_PROGRESS, COMPLETED)
+    private StudyStatus status; //  상태
 
     @Column(nullable = false)
     private Integer maxMembers; // 최대 정원

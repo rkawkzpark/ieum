@@ -15,15 +15,15 @@ public class Report extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // 식별 번호
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reporter_id", nullable = false)
-    private User reporter; // 신고한 사용자
+    private User reporter; // 신고자
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reported_user_id", nullable = false)
-    private User reportedUser; // 신고된 사용자
+    private User reportedUser; // 피신고자
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

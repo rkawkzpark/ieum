@@ -32,14 +32,18 @@ public class User extends BaseTimeEntity {
     @Column(length = 100)
     private String introduction;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserRole role;
 
     @Builder
-    public User(String email, String password, String name, String studentId, String introduction) {
+    public User(String email, String password, String name, String studentId, String introduction, UserRole role) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.studentId = studentId;
         this.introduction = introduction;
+        this.role = (role != null) ? role : UserRole.USER; // Default : User
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.ieum.study.domain;
+package com.ieum.notification.domain;
 
 import com.ieum.user.domain.BaseTimeEntity;
 import com.ieum.user.domain.User;
@@ -15,7 +15,7 @@ public class Notification extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // 알림 번호
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "receiver_id", nullable = false)
